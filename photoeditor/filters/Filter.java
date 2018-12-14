@@ -1,7 +1,4 @@
-package ru.kpfu.itis.ru.photoeditor.filters;
-
-import java.awt.*;
+package ru.kpfu.itis.photoeditor.filters;
 
 public interface Filter {
-    Color apply(Color color);
 }

@@ -1,6 +1,6 @@
-package ru.kpfu.itis.ru.photoeditor;
+package ru.kpfu.itis.photoeditor;
 
-import ru.kpfu.itis.ru.photoeditor.filters.*;
+import ru.kpfu.itis.photoeditor.filters.pixelapplicable.Snow;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class App {
     public static void main(String[] args) {
-        FilterSetter fs = new FilterSetter();
-        RGchanged bw = new RGchanged();
+        PixelFilterSetter fs = new PixelFilterSetter();
+        Snow bw = new Snow();
         File imagina = new File("Test.jpg");
         BufferedImage picture = null; //= new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         try {
