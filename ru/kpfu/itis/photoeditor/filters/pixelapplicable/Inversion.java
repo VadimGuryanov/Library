@@ -1,11 +1,13 @@
 package ru.kpfu.itis.photoeditor.filters.pixelapplicable;
 
 import java.awt.*;
+
 /**
- * The filter changes image in negative
- * @author Iscander Musin KFU, ITIS.
+ * The filter inverses image
+ * @author Iskander Musin KFU, ITIS.
  */
-public class Negative implements PixelApplicableFilter {
+
+public class Inversion implements PixelApplicableFilter {
 	/**
      * Function that returns the color of pixel with applied filter
      * @param color - color of pixel
@@ -16,7 +18,6 @@ public class Negative implements PixelApplicableFilter {
         int red = color.getRed();
         int green = color.getGreen();
         int blue = color.getBlue();
-        int inversedGrey = 255 - (red + green + blue) / 3;
-        return new Color(inversedGrey, inversedGrey, inversedGrey);
+        return new Color(255 - red, 255 - green, 255 - blue);
     }
 }
