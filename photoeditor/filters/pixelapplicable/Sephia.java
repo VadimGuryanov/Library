@@ -3,9 +3,17 @@ package ru.kpfu.itis.photoeditor.filters.pixelapplicable;
 import ru.kpfu.itis.photoeditor.filters.PercentageVariable;
 
 import java.awt.*;
-
+/**
+ * The filter changes image in sephia
+ * @author Vadim Guryanov KFU, ITIS.
+ */
 public class Sephia implements PixelApplicableFilter, PercentageVariable {
     private int coefficient;
+    /**
+     * Function that returns the color of pixel with applied filter
+     * @param color - color of pixel
+     * @return the color of pixel
+     */
     @Override
     public Color apply(Color color) {
         Color colorBW = (new BlackWhite()).apply(color);
@@ -32,7 +40,10 @@ public class Sephia implements PixelApplicableFilter, PercentageVariable {
         return new Color(red + b, green + b, blue + b);
     }
 
-
+    /**
+     * Function that allows to set percentage of the sephia
+     * @param coefficient - percentage that the filter regulates sephia of the image
+     */
     @Override
     public void setPercentage(int coefficient) {
         this.coefficient = coefficient;

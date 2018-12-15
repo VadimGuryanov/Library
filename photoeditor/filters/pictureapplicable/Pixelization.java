@@ -5,11 +5,24 @@ import ru.kpfu.itis.photoeditor.filters.PercentageVariable;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ *
+ * Pixelization filter with changeable size of pixel squares that affects on whole image.
+ * @author Schastlivcev Michael KFU, ITIS.
+ */
 public class Pixelization implements PictureApplicableFilter, PercentageVariable {
-    private int pixelSize;
+    /** Field of the size in pixels of the pixel square.*/
+    private int pixelSize = 1;
+
+    /**
+     * Function which returns an image with applied filter
+     * @param image - image on which you want to apply the filter
+     * @return modified image
+     * @throws IllegalArgumentException - thrown when size of the square is less than 1 or greater than size of the image
+     */
     public BufferedImage apply(BufferedImage image) throws IllegalArgumentException {
         int x = 0, y = 0;
-        if(pixelSize < 0 || pixelSize >= image.getWidth() || pixelSize >= image.getHeight()) {
+        if(pixelSize <= 0 || pixelSize >= image.getWidth() || pixelSize >= image.getHeight()) {
             throw new IllegalArgumentException("Illegal pixel step");
         }
         while(y <= image.getHeight()) {
@@ -51,6 +64,10 @@ public class Pixelization implements PictureApplicableFilter, PercentageVariable
         return image;
     }
 
+    /**
+     * Function that allows to set concrete size of the side of pixel square
+     * @param coefficient - size in pixels of the side
+     */
     @Override
     public void setPercentage(int coefficient) {
         this.pixelSize = coefficient;
